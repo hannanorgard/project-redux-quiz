@@ -7,7 +7,8 @@ export const Question = () => {
   const [disabled, setDisabled] = useState(false);
   const question = useSelector((state) => state.quiz.questions[state.quiz.currentQuestionIndex])
 
-  const dispatch = useDispatch();
+  // const correctOrNot =
+  const dispatch = useDispatch()
   console.log(question);
 
   if (!question) {
@@ -19,11 +20,10 @@ export const Question = () => {
     setDisabled(true);
 
     if (question.correctAnswerIndex === answerIndex) {
-      <h1>You are super right</h1>
+      console.log('Right')
     } else {
-      <h1>No loser</h1>
+      console.log('wrong')
     }
-
     setTimeout(() => {
       dispatch(quiz.actions.goToNextQuestion())
       setDisabled(false)
